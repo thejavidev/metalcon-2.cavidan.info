@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Home from '../../pages/Home'
 import About from '../../pages/About'
 import Services from '../../pages/Services'
@@ -7,13 +7,24 @@ import ProjectSingle from '../../pages/ProjectSingle'
 import Certificats from '../../pages/Certificats'
 import Contact from '../../pages/Contact'
 import { useRoutes } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadposts } from '../store/posts'
 
 const Router = () => {
+
+    const dispatch =useDispatch();
+    const data =useSelector((state) =>state.list);
+
+    useEffect(()=>{
+        dispatch(loadposts())
+    },[dispatch])
+
+    console.log(data)
     
     const minirouter =[
         {
             path:'/',
-            element: <Home />,
+            element: <Home data={data} />,
             exact:true,
         },
         {

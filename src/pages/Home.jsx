@@ -1,10 +1,31 @@
-import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-const Home = () => {
+import { Pagination } from 'swiper/modules';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+const Home = ({data}) => {
+  const home_banner =data?.homebanner;
   return (
-    <div>
+    <>
+      <section>
+      <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+
+        {
+          home_banner && home_banner?.map((cur,i)=>(
+            <SwiperSlide key={i}>
+                <LazyLoadImage src={cur?.src} alt={cur?.alt_en} />
+            </SwiperSlide>
+          ))
+        }
+
+
       
-    </div>
+        
+      </Swiper>
+      </section>
+    </>
   )
 }
 
