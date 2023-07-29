@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react';
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { breadcump } from '~/assets';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import { LightgalleryItem } from "react-lightgallery";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import { certificats } from "../components/fadedata/fakedata";
 
-import { about } from '../components/fadedata/fakedata';
 
 
-const About = () => {
+const Certificate = () => {
 
 
   return (
     <>
-      
       <div
        
       >
@@ -32,24 +33,25 @@ const About = () => {
                 <div className='font-[700] text-[16px] capitalize' ><Link to='/'>ana sehife</Link></div>
               </BreadcrumbItem>
               <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink className='font-[200] text-[16px] capitalize' href='#'>about</BreadcrumbLink>
+                <BreadcrumbLink className='font-[200] text-[16px] capitalize' href='#'>sertifkatlar</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
           </Container>
         </div>
-        <section id="about" className='pt-[50px] pb-[50px] bg-[--bg]'>
+        <section className="pt-[50px] pb-[50px] bg-[--bg]">
           <Container>
-            <div className="w-full flex justify-end items-end  mb-4 md:items-center md:justify-start">
-              <h2 className='text-[35px] lg:text-[25px] font-bold text-[#3498db]'>test <span className='text-[--text]'>test</span></h2>
-            </div>
-
-            <Row className='items-center'>
-              <Col lg={6}>
-                <LazyLoadImage src={about?.img} className='lg:w-full lg:mb-4' />
-              </Col>
-              <Col lg={6} className='flex items-center  flex-col'>
-                <div className="w-full text-justify text-[--text]" >{about?.text}</div>
-              </Col>
+            <Row>
+              {
+                certificats && certificats?.map((cur, i) => (
+                  <Col lg={3} md={4} xs={6} key={i} className="lg:mb-7">
+                    <LightgalleryItem group="any" src={cur?.src} >
+                      <a>
+                        <LazyLoadImage src={cur?.src} className='w-[100%!important]   cursor-zoom-in'  />
+                      </a>
+                    </LightgalleryItem>
+                  </Col>
+                ))
+              }
             </Row>
           </Container>
         </section>
@@ -58,4 +60,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Certificate

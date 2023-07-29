@@ -1,6 +1,6 @@
 import line from './line.webp';
 import breadcump from './breadcump.webp';
-import cornlogo from './corn-logo.png';
+import corn_logo from './corn-logo.png';
 import footer_logo from './footer_logo.png';
 import footer_bg from './footer-bg.webp';
 import moon from './moon.png';
@@ -28,8 +28,9 @@ import project1 from './projects/project1.webp';
 import project2 from './projects/project2.png';
 import project3 from './projects/project3.webp';
 import project4 from './projects/project4.webp';
+import aboutBg2 from './aboutBg.png';
 
-export {line,breadcump,cornlogo,footer_bg,footer_logo,moon,soon,homeBg,
+export {line,breadcump,corn_logo,footer_bg,footer_logo,moon,soon,homeBg,aboutBg2,
     blue1,white1,blue2,white2,blue3,white3,blue4,white4,aboutBg,aboutline,
     chra1blue,chra1white,chra2blue,chra2white,chra3blue,chra3white,chra4blue,chra4white,project1,project2,project3,project4
 }
